@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider Carta Kehadiran</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .header {
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        .header img {
+            width: 60px;
+            height: auto;
+        }
+        .description {
+            max-width: 800px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: white;
+            text-align: justify;
+        }
+        .credit {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #ffcc00;
+        }
+        .widget-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 10px 0;
+        }
+        .widget {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+        }
+        .slider {
+            position: relative;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .slides {
+            display: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .active {
+            display: block;
+        }
+        .comments-section {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            width: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: white;
+            text-align: left;
+        }
+        .comments-section h3 {
+            font-size: 14px;
+            margin: 0 0 5px;
+            text-align: center;
+        }
+        .comment-input, .comment-box {
+            width: calc(100% - 10px);
+            padding: 5px;
+            font-size: 12px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        .comment-submit {
+            width: 100%;
+            padding: 5px;
+            font-size: 12px;
+            background-color: #4facfe;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .slider-nav button {
+            padding: 5px 10px;
+            margin: 0 5px;
+            border: none;
+            background: #4facfe;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .year-selector {
+            margin: 10px;
+        }
+    </style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .slide {
+            display: none;
+        }
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: auto;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .prev { left: 0; }
+        .next { right: 0; }
+    </style>
+
+</head>
+<body>
+
+    <div class="content">
+        <div class="header">
+            <img src="skluasong.jpg" alt="Logo SK Luasong Tawau">
+            <span>Carta Analisis Kehadiran APDM</span>
+        </div>
+        <div class="widget-container">
+            <div class="widget" id="date-widget"></div>
+            <div class="widget" id="temp-widget">Suhu: 30°C</div>
+            <div class="widget" id="visitor-widget">Pelawat: 120</div>
+        </div>
+        <div class="description">
+            Tujuan analisis kehadiran sekolah dibuat adalah untuk mengenal pasti corak kehadiran murid, mengenal pasti murid yang kerap tidak hadir, mengenal pasti faktor yang mempengaruhi kehadiran, serta merancang tindakan intervensi bagi meningkatkan kehadiran murid ke sekolah.
+        </div>
+<img src="kehadiran bulanan.png" alt="kehadiran bulanan" style="width: 50%; max-width: 500px; display: block; margin: auto;">
+Rumusan Analisis Kehadiran Bulanan SK Luasong 2024/2025:D1 Amanah: Kehadiran konsisten melebihi 90%, tetapi terdapat penurunan pada bulan Julai (88.28%) sebelum kembali meningkat. D2 Cekap: Prestasi kehadiran tinggi (sekitar 97-99%) kecuali penurunan pada Mac (91.06%) dan Januari (91.26%). D3 Cerdik: Tren meningkat secara beransur-ansur, dengan kehadiran mencapai 100% pada Januari. D4 Adil: Naik turun ketara, tetapi meningkat stabil hingga mencecah 97.81% pada Disember. D5 Azam: Kehadiran agak tidak stabil, tetapi menunjukkan peningkatan positif, mencapai 97.20% pada Januari. D6 Arif: Turun naik ketara dengan titik rendah pada Julai (87.54%), tetapi pulih semula pada bulan berikutnya.
+
+Kesimpulan: Kebanyakan kelas menunjukkan peningkatan kehadiran menjelang akhir tahun, tetapi ada kelas yang memerlukan intervensi untuk menstabilkan kehadiran. Langkah pemerkasaan dan motivasi boleh membantu memperbaiki konsistensi kehadiran.
+        <div class="credit">
+            Analisis oleh: Mohammad Fikrey Abdul Gapar
+
+        <div class="slider">
+            <div class="slideshow-container">
+        <div class="slide"><img src="6 arif.png" alt="D6 Arif"></div>
+        <div class="slide"><img src="1 amanah.png" alt="D1 Amanah"></div>
+        <div class="slide"><img src="2 cekap.png" alt="D2 Cekap"></div>
+        <div class="slide"><img src="3 cerdik.png" alt="D3 Cerdik"></div>
+        <div class="slide"><img src="4 adil.png" alt="D4 Adil"></div>
+        <div class="slide"><img src="5 azam.png" alt="D5 Azam"></div>
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+    <script>
+        let slideIndex = 0;
+        showSlides(slideIndex);
+        
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+        
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("slide");
+            if (n >= slides.length) { slideIndex = 0; }
+            if (n < 0) { slideIndex = slides.length - 1; }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex].style.display = "block";
+        }
+    </script>
+        </div>
+        <div class="comments-section">
+            <h3>Komen Pelawat</h3>
+            <input type="text" class="comment-input" placeholder="Nama Anda">
+            <textarea class="comment-box" placeholder="Tinggalkan komen..."></textarea>
+            <button class="comment-submit">Hantar</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById("date-widget").innerText = new Date().toLocaleDateString("ms-MY", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    </script>
+</body>
+</html>
